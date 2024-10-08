@@ -133,7 +133,7 @@ db.employees.insertMany([
         }]
       },
       {
-        date: new Date("2024-10-23"),
+        date: new Date("2024-10-08"),
         time_location: [{
           time: "08:02:30",
           location: "hầm B1"
@@ -151,7 +151,31 @@ db.employees.insertMany([
     identity_card: "987654321",
     name: "Trần Thị Bình",
     birth_date: new Date("1999-05-15"),
-    phone: "0945678910"
+    phone: "0945678910",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "123456789",
@@ -159,7 +183,31 @@ db.employees.insertMany([
     identity_card: "456789012",
     name: "Phạm Thị Lan",
     birth_date: new Date("1993-03-20"),
-    phone: "0978563412"
+    phone: "0978563412",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "123456789",
@@ -167,7 +215,31 @@ db.employees.insertMany([
     identity_card: "890123456",
     name: "Hoàng Thị Mai",
     birth_date: new Date("1992-08-12"),
-    phone: "0945678901"
+    phone: "0945678901",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "123456789",
@@ -175,7 +247,31 @@ db.employees.insertMany([
     identity_card: "456123789",
     name: "Trần Văn Hùng",
     birth_date: new Date("1990-08-25"),
-    phone: "0976543120"
+    phone: "0976543120",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "987654321",
@@ -183,7 +279,31 @@ db.employees.insertMany([
     identity_card: "234567891",
     name: "Phạm Văn Tâm",
     birth_date: new Date("1999-12-25"),
-    phone: "0978563412"
+    phone: "0978563412",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "987654321",
@@ -191,7 +311,31 @@ db.employees.insertMany([
     identity_card: "567890123",
     name: "Trần Văn Đức",
     birth_date: new Date("1995-11-10"),
-    phone: "0923456789"
+    phone: "0923456789",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "987654321",
@@ -199,7 +343,31 @@ db.employees.insertMany([
     identity_card: "234567890",
     name: "Lê Văn Hoa",
     birth_date: new Date("1993-08-20"),
-    phone: "0976543213"
+    phone: "0976543213",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "987654321",
@@ -207,7 +375,31 @@ db.employees.insertMany([
     identity_card: "345678901",
     name: "Nguyễn Thị Mai Hoa",
     birth_date: new Date("2002-05-10"),
-    phone: "0932154768"
+    phone: "0932154768",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "987654321",
@@ -215,7 +407,31 @@ db.employees.insertMany([
     identity_card: "456779012",
     name: "Trần Văn Hưng",
     birth_date: new Date("2003-12-05"),
-    phone: "0928374651"
+    phone: "0928374651",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "246813579",
@@ -223,7 +439,31 @@ db.employees.insertMany([
     identity_card: "345677901",
     name: "Lê Thị Hương",
     birth_date: new Date("2001-08-08"),
-    phone: "0967543210"
+    phone: "0967543210",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "246813579",
@@ -231,7 +471,31 @@ db.employees.insertMany([
     identity_card: "678901233",
     name: "Lê Thị Thanh Tâm",
     birth_date: new Date("2003-07-25"),
-    phone: "0956781234"
+    phone: "0956781234",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "246813579",
@@ -239,7 +503,31 @@ db.employees.insertMany([
     identity_card: "234567810",
     name: "Trần Văn Thắng",
     birth_date: new Date("1999-08-20"),
-    phone: "0976543210"
+    phone: "0976543210",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "246813579",
@@ -247,7 +535,31 @@ db.employees.insertMany([
     identity_card: "345558901",
     name: "Nguyễn Thị Bình Minh",
     birth_date: new Date("2001-01-15"),
-    phone: "0932154338"
+    phone: "0932154338",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "246813579",
@@ -255,7 +567,31 @@ db.employees.insertMany([
     identity_card: "456789112",
     name: "Phạm Thị Trang",
     birth_date: new Date("1994-03-15"),
-    phone: "0928374631"
+    phone: "0928374631",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "135792468",
@@ -263,7 +599,31 @@ db.employees.insertMany([
     identity_card: "453789012",
     name: "Hoàng Văn Phúc",
     birth_date: new Date("1992-03-20"),
-    phone: "0956432108"
+    phone: "0956432108",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "135792468",
@@ -271,7 +631,31 @@ db.employees.insertMany([
     identity_card: "789012345",
     name: "Nguyễn Văn Hải",
     birth_date: new Date("1994-05-15"),
-    phone: "0912345678"
+    phone: "0912345678",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   },
   {
     company_id: "135792468",
@@ -279,10 +663,33 @@ db.employees.insertMany([
     identity_card: "232567890",
     name: "Lê Văn Mạnh",
     birth_date: new Date("1998-08-20"),
-    phone: "0976543211"
+    phone: "0976543211",
+    timestamp_location: [
+      {
+        date: new Date("2024-8-01"),
+        time_location: [{
+          time: "13:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "13:23:30",
+          location: "tầng 1"
+        }]
+      },
+      {
+        date: new Date("2024-10-08"),
+        time_location: [{
+          time: "08:02:30",
+          location: "hầm B1"
+        },
+        {
+          time: "08:30:30",
+          location: "tầng 1"
+        }]
+      }
+    ]
   }
 ])
-
 
 
 db.services.insertMany([
@@ -290,25 +697,29 @@ db.services.insertMany([
 	  IdService: "001",
     name: "Dịch vụ vệ sinh",
     service_type: "Vệ sinh",
-    base_price: 500000
+    base_price: 500000,
+    num_staff: 1
   },
   {
 	  IdService: "002",
     name: "Dịch vụ bảo vệ",
     service_type: "Bảo vệ",
-    base_price: 700000
+    base_price: 700000,
+    num_staff: 2
   },
   {
 	  IdService: "003",
     name: "Dịch vụ ăn uống",
     service_type: "Ăn uống",
-    base_price: 1500000
+    base_price: 1500000,
+    num_staff: 1
   },
   {
 	  IdService: "004",
     name: "Dịch vụ bảo trì thiết bị",
     service_type: "Bảo trì thiết bị",
-    base_price: 1200000
+    base_price: 1200000,
+    num_staff: 1
   }
 ])
 
@@ -390,350 +801,3 @@ db.buildingEmployees.insertMany([
     ]
   }
 ])
-
-
-
-db.accessRecords.insertMany([
-  {
-    employee_id: "232567890",
-    timestamp_location: [
-      {
-        date: new Date("2024-8-01"),
-        time_location: [{
-          time: "13:02:30",
-          location: "hầm B1"
-        },
-        {
-          time: "13:23:30",
-          location: "tầng 1"
-        }]
-      },
-      {
-        date: new Date("2024-10-23"),
-        time_location: [{
-          time: "08:02:30",
-          location: "hầm B1"
-        },
-        {
-          time: "08:30:30",
-          location: "tầng 1"
-        }]
-      }
-    ]
-  },
-  {
-    employee_id: "345678901",
-    timestamp_location: [
-      {
-        date: new Date("2024-10-01"),
-        time_location: {
-          time: "13:02:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "13:23:30",
-          location: "tầng 1"
-        }
-      }
-    ]
-  },
-  {
-    employee_id: "456779012",
-    timestamp_location: [
-      {
-        date: new Date("2024-10-22"),
-        time_location: {
-          time: "13:02:30",
-          location: "hầm B2"
-        },
-        time_location: {
-          time: "13:23:30",
-          location: "tầng 1"
-        }
-      },
-      {
-        date: new Date("2024-10-23"),
-        time_location: {
-          time: "08:02:30",
-          location: "hầm B2"
-        },
-        time_location: {
-          time: "08:35:30",
-          location: "tầng 1"
-        }
-      }
-    ]
-  },
-  {
-    employee_id: "345677901",
-    timestamp_location: [
-      {
-        date: new Date("2024-8-01"),
-        time_location: {
-          time: "13:02:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "13:23:30",
-          location: "tầng 1"
-        }
-      },
-      {
-        date: new Date("2024-10-23"),
-        time_location: {
-          time: "08:02:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "08:30:30",
-          location: "tầng 1"
-        }
-      }
-    ]
-  },
-  {
-    employee_id: "678901233",
-    timestamp_location: [
-      {
-        date: new Date("2024-8-01"),
-        time_location: {
-          time: "13:02:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "13:23:30",
-          location: "tầng 1"
-        }
-      },
-      {
-        date: new Date("2024-10-23"),
-        time_location: {
-          time: "08:02:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "08:30:30",
-          location: "tầng 1"
-        }
-      }
-    ]
-  },
-  {
-    employee_id: "456789112",
-    timestamp_location: [
-      {
-        date: new Date("2024-8-01"),
-        time_location: {
-          time: "13:24:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "15:23:30",
-          location: "tầng 1"
-        }
-      },
-      {
-        date: new Date("2024-11-23"),
-        time_location: {
-          time: "08:20:30",
-          location: "hầm B1"
-        },
-        time_location: {
-          time: "19:30:30",
-          location: "tầng 1"
-        }
-      }
-    ]
-  }
-])
-
-
-
-# Cau 1
-db.companies.aggregate([
-    {
-        $lookup: {
-            from: "services",
-            localField: "used_service.service_id",
-            foreignField: "IdService",
-            as: "services"
-        }
-    },
-    {
-        $project: {
-            _id: 1,
-            name: 1,
-            tax_code: 1,
-            charter_capital: 1,
-            industry: 1,
-            employee_count: 1,
-            address: 1,
-            phone: 1,
-            area: 1,
-            used_service: {
-                $filter: {
-                    input: "$used_service",
-                    as: "used_service",
-                    cond: { $eq: ["$$used_service.paied", 0] }
-                }
-            },
-            services: {
-                $map: {
-                    input: "$services",
-                    as: "service",
-                    in: {
-						NameService: "$$service.name",
-                        base_price: "$$service.base_price"
-                    }
-                }
-            }
-        }
-    },
-    {
-        $set: {
-            services: {
-                $map: {
-                    input: "$services",
-                    as: "service",
-                    in: {
-						NameService: "$$service.NameService",
-                        base_price: "$$service.base_price",
-                        start_date: { $arrayElemAt: ["$used_service.start_date", { $indexOfArray: ["$used_service.IdService", "$$service.service_id"] }] }
-                    }
-                }
-            }
-        }
-    },
-	{
-        $addFields: {
-            area_expense: { $multiply: [5000000, "$area"] },
-            current_date: new Date()
-        }
-    },
-    {
-        $addFields: {
-            month_diff: { $month: "$current_date" },
-            year_diff: { $year: "$current_date" }
-        }
-    },
-    {
-        $addFields: {
-            services: {
-                $map: {
-                    input: "$services",
-                    as: "service",
-                    in: {
-						NameService: "$$service.NameService",
-						base_price: "$$service.base_price",
-						start_date: "$$service.start_date",
-                        day: {
-                            $cond: {
-                                if: {
-                                    $and: [
-                                        { $eq: [{ $month: "$$service.start_date" }, "$month_diff"] },
-                                        { $eq: [{ $year: "$$service.start_date" }, "$year_diff"] }
-                                    ]
-                                },
-                                then: {
-                                    $toInt: {
-                                        $divide: [
-                                            { $subtract: ["$current_date", "$$service.start_date"] },
-                                            24 * 60 * 60 * 1000
-                                        ]
-                                    }
-                                },
-                                else: 0
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    },
-    {
-        $addFields: {
-            days_in_month: {
-                $switch: {
-                    branches: [
-                        { case: { $in: ["$month_diff", [1, 3, 5, 7, 8, 10, 12]] }, then: 31 },
-                        { case: { $in: ["$month_diff", [4, 6, 9, 11]] }, then: 30 },
-                        { case: { $eq: ["$year_diff", 2024] }, then: 29 }, // Năm nhuận
-                        { case: true, then: 28 } // Năm không nhuận
-                    ],
-                    default: "Unknown"
-                }
-            }
-        }
-    },
-	{
-        $addFields: {
-            service_expense: {
-                $map: {
-                    input: "$services",
-                    as: "service",
-                    in: {
-						$multiply: [
-							{
-								$multiply: [
-									{
-										$add: [
-											1,
-											{ $multiply: [0.05, {$trunc: { $divide: [{$subtract: ["$area", 100]}, 10] } }]},
-											{
-												$multiply: [
-													0.05,
-													{
-														$cond: {
-															if: { $lt: [{ $subtract: ["$employee_count", 10] }, 0] },
-															then: 0,
-															else: { $trunc: { $divide: [{ $subtract: ["$employee_count", 10] }, 5] }
-															}
-														}
-													}
-												]
-											}
-										]
-									},
-									{ $divide: ["$$service.day", "$days_in_month"] }
-								]
-							},
-							"$$service.base_price"
-						]
-                    }
-                }
-            }
-        }
-    },
-	{
-        $addFields: {
-            total_expense: 
-			{
-				$add: [
-					"$area_expense",
-					{ $sum: "$service_expense" }
-				]
-			}
-        }
-    },
-	{
-        $project: {
-            _id: 1,
-            name: 1,
-            tax_code: 1,
-            charter_capital: 1,
-            industry: 1,
-            employee_count: 1,
-            address: 1,
-            phone: 1,
-            area: 1,
-            services: 1,
-			total_expense: 1
-        }
-    },
-	{
-        $sort: { total_expense: -1 }
-    }
-]);
-
-
-#cau 2

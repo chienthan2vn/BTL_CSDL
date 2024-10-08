@@ -1,0 +1,248 @@
+use btl
+
+
+# Cau 1
+db.companies.aggregate([
+    {
+      $lookup: {
+        from: "services",
+        localField: "used_service.service_id",
+        foreignField: "IdService",
+        as: "services"
+      }
+    },
+    {
+      $project: {
+        _id: 1,
+        name: 1,
+        tax_code: 1,
+        charter_capital: 1,
+        industry: 1,
+        employee_count: 1,
+        address: 1,
+        phone: 1,
+        area: 1,
+        used_service: {
+            $filter: {
+                input: "$used_service",
+                as: "used_service",
+                cond: { $eq: ["$$used_service.paied", 0] }
+            }
+        },
+          services: 1
+        }
+    },
+    {
+      $set: {
+        services: {
+          $map: {
+            input: "$services",
+            as: "service",
+            in: {
+              NameService: "$$service.name",
+              base_price: "$$service.base_price",
+              start_date: { $arrayElemAt: ["$used_service.start_date", { $indexOfArray: ["$used_service.IdService", "$$service.service_id"] }] }
+            }
+          }
+        }
+      }
+    },
+	{
+    $addFields: {
+      area_expense: { $multiply: [5000000, "$area"] },
+      current_date: new Date(),
+    }
+  },
+  {
+    $addFields: {
+      month_diff: { $month: "$current_date" },
+      year_diff: { $year: "$current_date" }
+    }
+  },
+  {
+    $addFields: {
+      services: {
+        $map: {
+          input: "$services",
+          as: "service",
+          in: {
+            NameService: "$$service.NameService",
+            base_price: "$$service.base_price",
+            start_date: "$$service.start_date",
+            day: {
+              $cond: {
+                if: {
+                  $and: [
+                    { $eq: [{ $month: "$$service.start_date" }, "$month_diff"] },
+                    { $eq: [{ $year: "$$service.start_date" }, "$year_diff"] }
+                  ]
+                },
+                then: {$toInt: {$divide: [{ $subtract: ["$current_date", "$$service.start_date"] },24 * 60 * 60 * 1000]}},
+                else: 0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    $addFields: {
+      days_in_month: {
+        $switch: {
+          branches: [
+            { case: { $in: ["$month_diff", [1, 3, 5, 7, 8, 10, 12]] }, then: 31 },
+            { case: { $in: ["$month_diff", [4, 6, 9, 11]] }, then: 30 },
+            { case: { $eq: ["$year_diff", 2024] }, then: 29 }, // Năm nhuận
+            { case: true, then: 28 } // Năm không nhuận
+          ],
+          default: "Unknown"
+        }
+      }
+    }
+  },
+	{
+    $addFields: {
+      service_expense: {
+        $map: {
+            input: "$services",
+            as: "service",
+            in: {
+            $multiply: [
+              {
+                $multiply: [
+                  {
+                    $add: [
+                      1,
+                      { $multiply: [0.05, {$trunc: { $divide: [{$subtract: ["$area", 100]}, 10] } }]},
+                      {
+                        $multiply: [
+                          0.05,
+                          {
+                            $cond: {
+                              if: { $lt: [{ $subtract: ["$employee_count", 10] }, 0] },
+                              then: 0,
+                              else: { $trunc: { $divide: [{ $subtract: ["$employee_count", 10] }, 5] }}
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  { $divide: ["$$service.day", "$days_in_month"] }
+                ]
+              },
+              "$$service.base_price"
+            ]
+          }
+        }
+      }
+    }
+  },
+	{
+    $addFields: {
+      total_expense: {$add: ["$area_expense", { $sum: "$service_expense" }]}
+    }
+  },
+	{
+    $project: {
+      _id: 1,
+      name: 1,
+      tax_code: 1,
+      charter_capital: 1,
+      industry: 1,
+      employee_count: 1,
+      address: 1,
+      phone: 1,
+      area: 1,
+      services: 1,
+      total_expense: 1
+    }
+  },
+	{$sort: { total_expense: -1 }}
+]);
+
+
+#cau 2
+db.employees.aggregate([
+  {
+    $addFields: { current_date: new Date() }
+  },
+  {
+    $addFields: {
+      month_diff: { $month: "$current_date" },
+      year_diff: { $year: "$current_date" },
+      day_diff: { $dayOfMonth: "$current_date" }
+    }
+  },
+  {
+    $project: {
+      _id: 1,
+      company_id: 1,
+      building_id: 1,
+      name: 1,
+      birth_date: 1,
+      address: 1,
+      phone: 1,
+      timestamp_location: {
+        $filter: {
+          input: "$timestamp_location",
+          as: "timestamp",
+          cond: {
+            $and: [
+              { $eq: [{ $month: "$$timestamp.date" }, "$month_diff"] },
+              { $eq: [{ $year: "$$timestamp.date" }, "$year_diff"] },
+              { $eq: [{ $dayOfMonth: "$$timestamp.date" }, "$day_diff"] }
+            ]
+          }
+        }
+      }
+    }
+  }
+])
+
+#cau 3
+db.buildingEmployees.aggregate([
+  {
+    $lookup: {
+      from: "services",
+      localField: "used_service.position",
+      foreignField: "IdService",
+      as: "services"
+    }
+  },
+  {
+    $lookup: {
+      from: "companies",
+      localField: "used_service.position",
+      foreignField: "position",
+      as: "used_service"
+    }
+  },
+  {
+    $addFields: { current_date: new Date() }
+  },
+  {
+    $addFields: {
+      month_diff: { $subtract: [ { $month: "$current_date" }, 1 ] },
+      year_diff: { $year: "$current_date" }
+    }
+  },
+  {
+    $unwind: "$used_service"
+  },
+  {
+    $match: {
+      "used_service.start_date": {
+        $gte: new ISODate("2024-10-01"),
+        $lt: new ISODate("2024-11-01")
+      }
+    }
+  },
+  {
+    $group: {
+      id: "$used_service.service_id",
+      num_used: { $sum: 1 }
+    }
+  }
+])

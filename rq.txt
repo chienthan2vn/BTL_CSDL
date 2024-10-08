@@ -28,6 +28,11 @@
   - `name`: String (tên)
   - `birth_date`: Date (ngày sinh)
   - `phone`: String (số điện thoại)
+  - `timestamp_location`: `Array` (danh sách thông tin vị trí theo thời gian), mỗi phần tử là một đối tượng với các trường:
+    - `date`: `Date` (ngày ghi nhận vị trí)
+    - `time_location`: `Array` (danh sách thông tin vị trí theo thời gian), mỗi phần tử là một đối tượng với các trường:
+      - `time`: `String` (thời gian ghi nhận)
+      - `location`: `String` (vị trí ghi nhận)
 
 #### 1.3. Collection: **Services**
 - **Mô tả**: Thông tin về các dịch vụ trong tòa nhà.
@@ -51,17 +56,6 @@
   - `salary`: `Array` (danh sách thông tin lương), mỗi phần tử là một đối tượng với các trường:
     - `date`: `Date` (ngày nhận lương)
     - `sumSalary`: `Number` (tổng số tiền lương nhận)
-
-
-#### 1.5. Collection: **AccessRecords**
-- **Mô tả**: Lưu trữ thông tin về vị trí của nhân viên theo thời gian.
-- **Trường**:
-  - `employee_id`: `String` (mã nhân viên)
-  - `timestamp_location`: `Array` (danh sách thông tin vị trí theo thời gian), mỗi phần tử là một đối tượng với các trường:
-    - `date`: `Date` (ngày ghi nhận vị trí)
-    - `time_location`: `Array` (danh sách thông tin vị trí theo thời gian), mỗi phần tử là một đối tượng với các trường:
-      - `time`: `String` (thời gian ghi nhận)
-      - `location`: `String` (vị trí ghi nhận)
 
 
 ### 2. Tính toán Đơn giá Dịch vụ
