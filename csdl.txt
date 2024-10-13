@@ -697,29 +697,25 @@ db.services.insertMany([
 	  IdService: "001",
     name: "Dịch vụ vệ sinh",
     service_type: "Vệ sinh",
-    base_price: 500000,
-    num_staff: 1
+    base_price: 500000
   },
   {
 	  IdService: "002",
     name: "Dịch vụ bảo vệ",
     service_type: "Bảo vệ",
-    base_price: 700000,
-    num_staff: 2
+    base_price: 700000
   },
   {
 	  IdService: "003",
     name: "Dịch vụ ăn uống",
     service_type: "Ăn uống",
-    base_price: 1500000,
-    num_staff: 1
+    base_price: 1500000
   },
   {
 	  IdService: "004",
     name: "Dịch vụ bảo trì thiết bị",
     service_type: "Bảo trì thiết bị",
-    base_price: 1200000,
-    num_staff: 1
+    base_price: 1200000
   }
 ])
 
@@ -735,7 +731,7 @@ db.buildingEmployees.insertMany([
     position: "001",
     salary: [
       {
-        date: new Date(2024-08-01),
+        date: new Date("2024-09-01"),
         sum_salary: 0
       }
     ]
@@ -750,7 +746,7 @@ db.buildingEmployees.insertMany([
     position: "002",
     salary: [
       {
-        date: new Date(2024-08-01),
+        date: new Date("2024-09-01"),
         sum_salary: 0
       }
     ]
@@ -765,7 +761,7 @@ db.buildingEmployees.insertMany([
     position: "002",
     salary: [
       {
-        date: new Date(2024-08-01),
+        date: new Date("2024-09-01"),
         sum_salary: 0
       }
     ]
@@ -780,7 +776,7 @@ db.buildingEmployees.insertMany([
     position: "003",
     salary: [
       {
-        date: new Date(2024-08-01),
+        date: new Date("2024-09-01"),
         sum_salary: 0
       }
     ]
@@ -795,7 +791,7 @@ db.buildingEmployees.insertMany([
     position: "004",
     salary: [
       {
-        date: new Date(2024-08-01),
+        date: new Date("2024-09-01"),
         sum_salary: 0
       }
     ]

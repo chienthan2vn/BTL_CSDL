@@ -202,47 +202,83 @@ db.employees.aggregate([
 ])
 
 #cau 3
-db.buildingEmployees.aggregate([
-  {
-    $lookup: {
-      from: "services",
-      localField: "used_service.position",
-      foreignField: "IdService",
-      as: "services"
-    }
-  },
-  {
-    $lookup: {
-      from: "companies",
-      localField: "used_service.position",
-      foreignField: "position",
-      as: "used_service"
-    }
-  },
-  {
-    $addFields: { current_date: new Date() }
-  },
-  {
-    $addFields: {
-      month_diff: { $subtract: [ { $month: "$current_date" }, 1 ] },
-      year_diff: { $year: "$current_date" }
-    }
-  },
+db.companies.aggregate([
   {
     $unwind: "$used_service"
   },
   {
     $match: {
       "used_service.start_date": {
-        $gte: new ISODate("2024-10-01"),
-        $lt: new ISODate("2024-11-01")
+        $gte: ISODate("2024-10-01"),
+        $lt: ISODate("2024-11-01")
       }
     }
   },
   {
     $group: {
-      id: "$used_service.service_id",
+      _id: "$used_service.service_id",
       num_used: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      id: "$_id",
+      num_used: 1
+    }
+  },
+  {
+    $lookup: {
+      from: "services",
+      localField: "id",
+      foreignField: "IdService",
+      as: "services"
+    }
+  },
+  {
+    $addFields: {
+      prices: { $arrayElemAt: ["$services.base_price", 0] }
+    }
+  },
+  {
+    $lookup: {
+      from: "buildingEmployees",
+      localField: "id",
+      foreignField: "position",
+      as: "servicesEmployees"
+    }
+  },
+  {
+    $addFields: {
+      lenE: { $size: "$servicesEmployees" }
+    }
+  },
+  {
+    $project: {
+      services: { $arrayElemAt: ["$services.name", 0] },
+      date: new Date("2024-10-01"),
+      salaries: {
+        $map: {
+          input: "$servicesEmployees",
+          as: "emp",
+          in: {
+            name: "$$emp.name",
+            birth_date: "$$emp.birth_date",
+            address: "$$emp.address",
+            phone: "$$emp.phone",
+            level: "$$emp.level",
+            salary: {
+              $add: [
+                { $multiply: [1000000, "$$emp.level"] },
+                { $multiply: [
+                  "$num_used",
+                  { $divide: ["$prices", "$lenE"] }
+                ]}
+              ]
+            }
+          }
+        }
+      }
     }
   }
 ])
