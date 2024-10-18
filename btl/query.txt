@@ -105,26 +105,38 @@ db.companies.aggregate([
     $addFields: {
       service_expense: {
         $map: {
-            input: "$services",
-            as: "service",
-            in: {
+          input: "$services",
+          as: "service",
+          in: {
             $multiply: [
               {
                 $multiply: [
                   {
                     $add: [
                       1,
-                      { $multiply: [0.05, {$trunc: { $divide: [{$subtract: ["$area", 100]}, 10] } }]},
                       {
                         $multiply: [
                           0.05,
                           {
-                            $cond: {
-                              if: { $lt: [{ $subtract: ["$employee_count", 10] }, 0] },
-                              then: 0,
-                              else: { $trunc: { $divide: [{ $subtract: ["$employee_count", 10] }, 5] }}
-                            }
-                          }
+							$add: [
+							  {
+								$cond: {
+								  if: { $lt: [{ $subtract: ["$area", 100] }, 0] },
+								  then: 0,
+								  else: { $trunc: { $divide: [{ $subtract: ["$area", 100] }, 10] }
+								  }
+								}
+							  },
+							  {
+								$cond: {
+								  if: { $lt: [{ $subtract: ["$employee_count", 10] }, 0] },
+								  then: 0,
+								  else: { $trunc: { $divide: [{ $subtract: ["$employee_count", 10] }, 5] }
+								  }
+								}
+							  }
+							]
+						  }
                         ]
                       }
                     ]
@@ -155,7 +167,6 @@ db.companies.aggregate([
       address: 1,
       phone: 1,
       area: 1,
-      services: 1,
       total_expense: 1
     }
   },

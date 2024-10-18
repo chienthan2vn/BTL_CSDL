@@ -2,3 +2,5 @@ Flask
 streamlit
 Flask-PyMongo
 requests
+streamlit_option_menu 
+pandas
