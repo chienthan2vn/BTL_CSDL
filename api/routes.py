@@ -42,35 +42,43 @@ def name_office():
 
 
 #==========================================================
-@app.route("/api/add_companies", methods=["GET"])
+@app.route("/api/add_companies", methods=["POST"])
 def add_companies():
-    selector = request.args.get("selector")
+    selector = request.json.get("selector")
     return add_company(selector)
 
-@app.route("/api/add_employees", methods=["GET"])
+@app.route("/api/add_employees", methods=["POST"])
 def add_employees():
-    selector = request.args.get("selector")
+    selector = request.json.get("selector")
     return add_company(selector)
 
-@app.route("/api/add_office", methods=["GET"])
+@app.route("/api/add_office", methods=["POST"])
 def add_office():
-    selector = request.args.get("selector")
+    selector = request.json.get("selector")
     return add_company(selector)
 
 #===================================================================
-@app.route("/api/del_companies", methods=["GET"])
+@app.route("/api/del_companies", methods=["POST"])
 def del_companies():
-    selector = request.args.getlist("company", "mst")
-    return del_company(selector[0], selector[1])
+    selector = request.json.get("selector")
+    print(selector)
+    return del_company(selector)
 
 #===================================================================
-@app.route("/api/update_companies", methods=["GET"])
+@app.route("/api/update_companies", methods=["POST"])
 def update_companies():
-    selector = request.args.getlist("company", "mst", "data")
-    return update_company(selector[0], selector[1], selector[2])
+    selector1 = request.json.get("query")
+    selector2 = request.json.get("data")
+    return update_company(selector1, selector2)
 
 #===================================================================
-@app.route("/api/update_service", methods=["GET"])
+@app.route("/api/update_service", methods=["POST"])
 def update_service():
-    selector = request.args.getlist("company", "mst", "data")
+    selector = request.json.get("company", "mst", "data")
     return update_company(selector[0], selector[1], selector[2])
+
+
+#===================================================================
+@app.route("/api/get_service", methods=["GET"])
+def get_service():
+    return jsonify(get_services())

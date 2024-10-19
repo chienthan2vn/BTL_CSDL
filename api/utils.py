@@ -2,6 +2,7 @@ from . import db
 from datetime import datetime
 import calendar
 import json
+from flask import jsonify
 
 # Get collection
 def get_collection(collection_name):
@@ -26,7 +27,7 @@ def get_services():
     info = dict()
     temp = get_collection("services")
     for doc in temp:
-        info[doc['IdService']] = [doc['name'], doc['base_price']]
+        info[doc['IdService']] = [doc['name'], doc['base_price'], doc['IdService']]
     return info
 
 
@@ -132,96 +133,83 @@ def get_name(collection, field):
 #add data
 def add_company(company):
     collection = db["companies"]
-    if company["charter_capital"] not in get_name("companies", "charter_capital"):
+    x = company["tax_code"]
+    if company["tax_code"] not in get_name("companies", "tax_code"):
         collection.insert_one(company)
-        return True
+        return jsonify({"message": "Công ty đã được thêm thành công!"}), 201  # Trả về mã trạng thái 201
     else:
-        return False
+        return jsonify({"message": "Mã thuế đã tồn tại!"}), 400 
+
 
 def add_employ(employ):
     collection = db["employees"]
     if employ["identity_card"] not in get_name("employees", "identity_card"):
         collection.insert_one(employ)
-        return True
-    else:
-        return False
+
 
 def add_office(employ):
     collection = db["buildingEmployees"]
     if employ["phone"] not in get_name("buildingEmployees", "phone"):
         collection.insert_one(employ)
-        return True
-    else:
-        return False
+
     
 
 #del data
-def del_company(company, mst):
+def del_company(data):
     collection = db["companies"]
-    query = {'name':company, 'charter_capital':mst}
-    result = collection.delete_one(query)
+    result = collection.delete_one(data)
     if result.deleted_count > 0:
-        return True
+        return jsonify({"message": "Công ty đã được xóa thành công!"}), 201
     else:
-        return False
+        return jsonify({"message": "Not Found"}), 404
+
     
 def del_employ(employ, cmt):
     collection = db["employees"]
     query = {'name':employ, 'identity_card':cmt}
     result = collection.delete_one(query)
     if result.deleted_count > 0:
-        return True
-    else:
-        return False
+        return result
 
 def del_office(employ, phone):
     collection = db["buildingEmployees"]
     query = {'name':employ, 'phone':phone}
     result = collection.delete_one(query)
     if result.deleted_count > 0:
-        return True
-    else:
-        return False
+        return result
 
 
 #update data
-def update_company(company, mst, data):
+def update_company(query, data):
     collection = db["companies"]
-    query = {'name':company, 'charter_capital':mst}
     change = {'$set': data}
     result = collection.update_one(query, change)
     if result.modified_count > 0:
-        return True
+        return jsonify({"message": "Công ty đã được cập nhập thành công!"}), 201
     else:
-        return False
+        return jsonify({"message": "Not Found"}), 404
     
 def update_employ(employ, cmt, data):
     collection = db["employees"]
-    query = {'name':employ, 'charter_capital':cmt}
+    query = {'name':employ, 'tax_code':cmt}
     change = {'$set': data}
     result = collection.update_one(query, change)
     if result.modified_count > 0:
-        return True
-    else:
-        return False
+        return result
 
 def update_office(employ, phone, data):
     collection = db["buildingEmployees"]
-    query = {'name':employ, 'charter_capital':phone}
+    query = {'name':employ, 'tax_code':phone}
     change = {'$set': data}
     result = collection.update_one(query, change)
     if result.modified_count > 0:
-        return True
-    else:
-        return False
+        return result
     
 #update service
 def update_service(company, mst, data):
     collection = db["companies"]
-    query = {'name':company, 'charter_capital':mst}
+    query = {'name':company, 'tax_code':mst}
     change = {'$push': data}
     result = collection.update_one(query, change)
     if result.modified_count > 0:
-        return True
-    else:
-        return False
+        return result

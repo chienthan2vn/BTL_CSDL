@@ -1,4 +1,4 @@
-from pages import require_query
+from pages import require_query, query
 import streamlit as st
 from streamlit_option_menu import option_menu
 import requests
@@ -34,17 +34,12 @@ def run():
         elif option == choice[3]:
             require_query.office_info_detail()
     if app == "Query":
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            st.header("A cat")
-            st.image("https://static.streamlit.io/examples/cat.jpg")
-
-        with col2:
-            st.header("A dog")
-            st.image("https://static.streamlit.io/examples/dog.jpg")
-
-        with col3:
-            st.header("An owl")
-            st.image("https://static.streamlit.io/examples/owl.jpg")
+        choice = ["", "Thêm công ty", "Xóa công ty", "Cập nhập công ty", "Thuê dịch vụ"]
+        option = st.selectbox("Choice", choice)
+        if option == choice[1]:
+            query.add_company()
+        elif option == choice[2]:
+            query.del_company()
+        elif option == choice[3]:
+            query.update_company()
 run()
